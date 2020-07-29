@@ -1,0 +1,215 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Amy Lin">
+  <meta name="description" content="HTML Exercise 04">
+  <meta name="keywords" content="HTML, CSS, JavaScript">
+  <title>HTML Exercise 03</title>
+  <style>
+    table,
+    th,
+    td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 3pt;
+    }
+
+    table {
+      width: 70%;
+      font-size: 12pt;
+      font-family: 'Times New Roman'
+    }
+
+    th {
+      background-color: #F2F2F2;
+    }
+
+    h2 {
+      color: blue;
+    }
+  </style>
+</head>
+
+<!--TODO: remove white backgroud-color
+  style="background-color: white; color: black"
+-->
+
+<body>
+  <h1 style="color: red;text-align: center;">Exercise 04</h1>
+  <h2>Topic</h2>
+  <p style="font-size: 14pt;">請閱讀 HTML Table、Formatting、Quotations、Comments、Computercode、Entities、Symbols 各單元，
+    並摘錄相關重要 Tag 進行說明及展示。(範例如下圖所示)</p>
+  <img src="ex4.png" alt="ex4 sample">
+  <hr>
+
+  <h2>HTML Formatting</h2>
+  <table>
+    <tr>
+      <th>Tag</th>
+      <th>Description</th>
+      <th>Demonstration</th>
+    </tr>
+
+    <tr>
+      <td><code>&lt;b&gt;</code></td>
+      <td>粗體字</td>
+      <td>Hello <b>World</b>!</td>
+    </tr>
+    <tr>
+      <td><code>&lt;i&gt;</code></td>
+      <td>斜體字</td>
+      <td>Hello <i>World</i>!</td>
+    </tr>
+    <tr>
+      <td><code>&lt;strong&gt;</code></td>
+      <td>文字加粗、加重語氣</td>
+      <td>Hello <strong>World</strong>!</td>
+    </tr>
+    <tr>
+      <td><code>&lt;em&gt;</code></td>
+      <td>斜體文字、強調的內容</td>
+      <td>Hello <em>World</em>!</td>
+    </tr>
+    <tr>
+      <td><code>&lt;mark&gt;</code></td>
+      <td>突顯高亮文字、文字帶有底色</td>
+      <td>Hello <mark>World</mark>!</td>
+    </tr>
+    <tr>
+      <td><code>&lt;small&gt;</code></td>
+      <td>定義小號字</td>
+      <td>Hello <small>World</small>!</td>
+    </tr>
+    <tr>
+      <td><code>&lt;del&gt;</code></td>
+      <td>標示被刪除的文字</td>
+      <td>Hello <del>World</del>!</td>
+    </tr>
+    <tr>
+      <td><code>&lt;ins&gt;</code></td>
+      <td>標示被編輯插入的新文字、將文字加底線</td>
+      <td>Hello <ins>World</ins>!</td>
+    </tr>
+    <tr>
+      <td><code>&lt;sub&gt;</code></td>
+      <td>下標文字</td>
+      <td>Hello <sub>World</sub>!</td>
+    </tr>
+    <tr>
+      <td><code>&lt;sup&gt;</code></td>
+      <td>上標文字</td>
+      <td>Hello <sup>World</sup>!</td>
+    </tr>
+  </table>
+
+  <h2>HTML Quotations</h2>
+  <table>
+    <tr>
+      <th>Tag</th>
+      <th>Description</th>
+      <th>Demonstration</th>
+    </tr>
+    <tr>
+      <td><code>&lt;q&gt;</code></td>
+      <td>行內引用文字、短文字引用</td>
+      <td>WHO's primary role: <q>direct international health within the United Nations' system and to lead
+          partners in global health responses.</q></td>
+    </tr>
+    <tr>
+      <td><code>&lt;blockquote&gt;</code></td>
+      <td>引用段落文字、長文字引用</td>
+      <td>WHO's primary role is to: <blockquote cite="https://www.who.int/">Direct international health within the
+          United Nations' system and to
+          lead partners in global health responses.</blockquote>
+      </td>
+    </tr>
+    <tr>
+      <td><code>&lt;abbr&gt;</code></td>
+      <td>縮寫文字</td>
+      <td>WHO announced <abbr title="
+Coronavirus disease">COVID-19</abbr> outbreak as a pandemic on 11 March 2020.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;address&gt;</code></td>
+      <td>標示地址</td>
+      <td>WHO Headquarters: <address>Avenue Appia 20<br>
+          1211 Geneva, Switzerland</address>
+      </td>
+    </tr>
+    <tr>
+      <td><code>&lt;cite&gt;</code></td>
+      <td>表示一个作品的引用</td>
+      <td><cite>Justice: What's the Right Thing to Do?</cite> is a 2009 book on political philosophy by Michael J.
+        Sandel.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;bdo&gt;</code></td>
+      <td>
+        定義文字方向，使用dir定義方向<br>
+        <code>dir="ltr"</code>: 文字從左至右(預設)<br>
+        <code>dir="rtl"</code>: 文字從右至左
+      </td>
+      <td>
+        <bdo dir="ltr">Hello World!</bdo><br>
+        <bdo dir="rtl">Hello World!</bdo>
+      </td>
+    </tr>
+  </table>
+
+  <h2>HTML Comments</h2>
+  <table>
+    <tr>
+      <th>Tag</th>
+      <th>Description</th>
+      <th>Demonstration</th>
+    </tr>
+    <tr>
+      <td><code>&lt;!-- --&gt;</code></td>
+      <td>註解文字</td>
+      <td>
+        <code>&lt;!-- 單行註解，只會在 HTML code 裡看到，不會出現在畫面上 --&gt;</code><br>
+        <code>&lt;!-- <br>
+          多行註解，只會在 HTML code 裡看到，不會出現在畫面上<br>
+          多行註解，只會在 HTML code 裡看到，不會出現在畫面上<br>
+        --&gt;</code><br>
+      </td>
+    </tr>
+  </table>
+
+  <h2>HTML Computercode</h2>
+  <table>
+    <tr>
+      <th>Tag</th>
+      <th>Description</th>
+      <th>Demonstration</th>
+    </tr>
+    <tr>
+      <td><code>&lt;kbd&gt;</code></td>
+      <td>標記鍵盤輸入元素</td>
+      <td>You can use <kbd>Ctrl + S</kbd> to save files.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;samp&gt;</code></td>
+      <td>標記程式輸出內容</td>
+      <td>Error from my code: <samp>NameError: name 'os' is not defined</samp></td>
+    </tr>
+    <tr>
+      <td><code>&lt;code&gt;</code></td>
+      <td>標記程式碼</td>
+      <td>To delete a single file, use <code>pathlib.Path.unlink()</code>, <code>os.remove()</code> or
+        <code>os.unlink()</code>.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;var&gt;</code></td>
+      <td>標記程式碼或數學式中的變量</td>
+      <td>A simple equation: <var>x</var> = <var>y</var> + 2</td>
+    </tr>
+  </table>
+
+</body>
+
+</html>
