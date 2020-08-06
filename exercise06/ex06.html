@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Amy Lin">
+    <meta name="description" content="HTML Exercise 06">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <title>HTML Exercise 06</title>
+    <style>
+      h2 {
+        color: blue;
+      }
+
+      body {
+        background-color: #A0A0A0;
+        font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+      }
+
+      .level1 {
+        padding: 8px;
+        background-color: #FF0000;
+      }
+
+      .level2 {
+        padding: 8px;
+        background-color: #0000FF;
+      }
+
+      .level3 {
+        padding: 8px;
+        background-color: #00FF00;
+      }
+
+      #inner {
+        padding: 8px;
+        margin: 10px 50px;
+        border: 1px dashed #000;
+        background-color: #DDD;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1 style="color: red;text-align: center;">Exercise 06</h1>
+    <h2>Topic</h2>
+    <div style="font-size: 14pt;">
+      <p>請閱讀 HTML Blocks、Classes、Id、Iframes 單元，列出 HTML Block and Inline Elements 的差異，使用下列所定義的 css，在 html 中使用 div tag 並適當的指定 class 及 id 完成成如下圖所示的 recursive-color 網頁 (勿直接使用 Inline 方式定義樣式)</p>
+      <img src="recursive-color.png" alt="ex6 sample">
+    </div>
+    <hr>
+    <h2>HTML Block Elements vs Inline Elements</h2>
+    <div style="font-size: 14pt;">
+      <p>
+        <strong>Block Elements</strong>：總是在新的一行開始高度，元素寬度預設會撐到最大，使其占滿整個容器。<br>
+        ex. <code>&lt;div&gt;</code>、<code>&lt;p&gt;</code>......
+      </p>
+      <p>
+        <strong>Inline Elements</strong>：和其他元素都在同一行上，元素的寬高由它的內容撐開。<br>
+        ex. <code>&lt;span&gt;</code>、<code>&lt;a&gt;</code>......
+      </p>
+    </div>
+    <hr>
+
+    <h2>Recursive Color</h2>
+    <div class="level1">
+      <div class="level2">
+        <div class="level3">
+          <div class="level1">
+            <div class="level2">
+              <div class="level3">
+                <div class="level1">
+                  <div class="level2">
+                    <div class="level3">
+                      <div class="level1">
+                        <div class="level2">
+                          <div class="level3">
+                            <div class="level1">
+                              <div class="level2">
+                                <div class="level3">
+                                  <div class="level1">
+                                    <div class="level2">
+                                      <div class="level3">
+                                        <div id="inner"></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>
