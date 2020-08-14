@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Amy Lin">
+  <meta name="description" content="HTML Exercise 07">
+  <meta name="keywords" content="HTML, CSS, JavaScript">
+  <title>HTML Exercise 07</title>
+  <style>
+    h2 {
+      color: blue;
+    }
+
+    .basic {
+      padding: 5px;
+      margin: 15px;
+      color: black;
+      font-size: 12pt;
+    }
+
+    .html_specific {
+      border: 1px solid black;
+    }
+
+    .css_specific {
+      border: 1px dashed #B9B9B9;
+      text-align: center;
+    }
+
+    .level1 {
+      background-color: #FFEFEF;
+    }
+
+    .level2 {
+      background-color: #DCDCDC;
+    }
+
+    .level3 {
+      background-color: #F0F0F0;
+    }
+
+    #css_border {
+      background-color: #03AD5D;
+      color: black;
+      font-size: 12pt;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 style="color: red;text-align: center;">Exercise 07</h1>
+  <h2>Topic</h2>
+  <div style="font-size: 14pt;">
+    <p>請完成 html page structure 及 css box model structure 展示頁面，畫面及參考資料如下。</p>
+    <p><a href="http://10.62.163.224:8088/web/practice/blob/master/docs/html/res/html-structure.md">參考資料</a></p>
+    <img src="html-structure.png" alt="ex7 sample">
+  </div>
+  <hr>
+  <h2>HTML Structure</h2>
+  <div class="basic html_specific level1">&lt;html&gt;
+    <div class="basic html_specific border1 level2">
+      &lt;head&gt;
+      <div class="basic html_specific level3">
+        &lt;title&gt;Page title&lt;/title&gt;
+      </div>
+      &lt;/head&gt;
+    </div>
+    <div class="basic html_specific level2">
+      &lt;body&gt;
+      <div class="basic html_specific level3">
+        <div class="basic html_specific level3">
+          &lt;h1&gt;This is a heading&lt;/h1&gt;
+        </div>
+        <div class="basic html_specific level3">
+          &lt;p&gt;This is a paragraph.&lt;/p&gt;
+        </div>
+      </div>
+      CSS BOX MODEL
+      <div class="basic css_specific level3">Margin
+        <div id="css_border" style="margin: 5px 0px 0px 0px;">Border
+          <div class="basic css_specific level3">Padding
+            <div class="basic css_specific">Content
+            </div>
+          </div>
+        </div>
+      </div>
+      &lt;/body&gt;
+    </div>
+    &lt;/html&gt;
+  </div>
+
+</body>
+
+</html>
