@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Amy Lin">
+    <meta name="description" content="HTML Exercise 08">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <title>HTML Exercise 08</title>
+    <style>
+      body {
+        background: #333;
+        font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+      }
+
+      .basic {
+        text-align: center;
+        color: white;
+        margin: 20px;
+      }
+
+      .title {
+        font-size: 50px;
+      }
+
+      .content {
+        font-size: 20px;
+        line-height: 1.4;
+      }
+
+      .door {
+        display: inline-block;
+        margin: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="basic title">You Picked the Orange Door!</div>
+    <div class="basic content">
+      <p>I opened the Blue Door which held a BAD THING.</p>
+      <p>Now if you want to switch you can choose the Green Door</p>
+      <p>or you can keep your first choice and open the Orange Door.</p>
+    </div>
+
+    <div style="text-align: center;">
+      <div class="door"><img src="img/blue_door_fire.png" alt="blue_door_fire"></div>
+      <div class="door"><a href="lose.html"><img src="img/orange_door.png" alt="orange_door"></a></div>
+      <div class="door"><a href="win.html"><img src="img/green_door.png" alt="green_door"></a></div>
+    </div>
+
+  </body>
+
+</html>
