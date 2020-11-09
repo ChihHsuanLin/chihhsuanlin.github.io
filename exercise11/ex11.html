@@ -1,0 +1,178 @@
+<!doctype html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Amy Lin">
+    <meta name="description" content="HTML Exercise 11">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <title>HTML Exercise 11</title>
+    <style>
+      body {
+        font-family: "Rockwell Extra Bold", "Rockwell Bold", monospace;
+        letter-spacing: 2px;
+        background-color: #FFE9B8;
+      }
+
+      h1 {
+        color: red;
+        text-align: center;
+      }
+
+      h2 {
+        color: blue;
+      }
+
+      legend {
+        font-size: 14pt;
+      }
+
+      .question_region {
+        margin: 10px;
+        padding: 10px;
+        width: 600px;
+        font-size: 14pt;
+      }
+
+      .question_title {
+        padding: 10px;
+        background-color: #FF913E;
+      }
+
+      .question_option {
+        margin: 20px;
+      }
+
+      input,
+      select {
+        font-size: 14pt;
+      }
+
+      td {
+        padding: 5px;
+        vertical-align: text-top;
+      }
+
+      #submit_format {
+        margin: 10px;
+        padding: 10px;
+        text-align: right;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Exercise 11</h1>
+    <h2>Topic</h2>
+    <div style="font-size: 14pt;">
+      <p>請完成下圖所示的問卷網頁介面，請注意在 What's your gender? 及 How do you get around ? 問題選取時，文字的部份也是在有效的選取範圍(即點選到文字時，該項目就可以被勾選)。</p>
+      <p><a href="http://10.62.163.224:8088/web/practice/raw/master/docs/html/img/question.png" target="_blank">範例圖片</a></p>
+    </div>
+    <hr>
+    <div style="padding: 20px;border-style: dotted;margin: 20px 0px 50px 0px;">
+      <h1>My Questions?</h1>
+    </div>
+    <form>
+      <fieldset>
+        <legend>Personal Information</legend>
+        <div class="question_region">
+          <div class="question_title">1. What's your name and email?</div>
+          <div class="question_option">
+            <table>
+              <tr>
+                <td><input type="text" placeholder="Input your name" style="height: 30px;width: 300px;" required></td>
+              </tr>
+              <tr>
+                <td><input type="email" placeholder="Input your email" style="height: 30px;width: 300px;" required></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="question_region">
+          <div class="question_title">2. What's your gender?</div>
+          <div class="question_option">
+            <table>
+              <tr>
+                <td><input type="radio" name="q2" id="q2-1" value="q2-1" checked></td>
+                <td><label for="q2-1">Male</label></td>
+              </tr>
+              <tr>
+                <td><input type="radio" name="q2" id="q2-2" value="q2-2"></td>
+                <td><label for="q2-2">Female</label></td>
+              </tr>
+              <tr>
+                <td><input type="radio" name="q2" id="q2-3" value="q2-3"></td>
+                <td><label for="q2-3">Other</label></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="question_region">
+          <div class="question_title">3. What's your age?</div>
+          <div class="question_option">
+            <select style="width: 200px;">
+              <option selected>0~10</option>
+              <option>11~20</option>
+              <option>21~30</option>
+              <option>31~40</option>
+              <option>41~50</option>
+              <option>51~60</option>
+              <option>61~70</option>
+              <option>&gt;=71</option>
+            </select>
+          </div>
+        </div>
+      </fieldset>
+      <br>
+      <fieldset>
+        <legend>Other Question</legend>
+        <div class="question_region">
+          <div class="question_title">1. How do you get around?</div>
+          <div class="question_option">
+            <table>
+              <tr>
+                <td><input type="checkbox" name="q1" id="q1-1" value="q1-1"></td>
+                <td><label for="q1-1">MRT</label></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" name="q1" id="q1-2" value="q1-2"></td>
+                <td><label for="q1-2">Bus</label></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" name="q1" id="q1-3" value="q1-3"></td>
+                <td><label for="q1-3">Bike</label></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" name="q1" id="q1-4" value="q1-4"></td>
+                <td><label for="q1-4">Feet</label></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="question_region">
+          <div class="question_title">2. What's your favorite color?</div>
+          <div class="question_option">
+            <input type="color" style="width: 100px;height: 40px;">
+          </div>
+        </div>
+
+        <div class="question_region">
+          <div class="question_title">3. Write something about you?</div>
+          <div class="question_option">
+            <textarea rows="10" cols="50"></textarea>
+          </div>
+        </div>
+      </fieldset>
+
+      <div id="submit_format">
+        <input type="submit" value="submit">
+      </div>
+    </form>
+  </body>
+
+</html>
