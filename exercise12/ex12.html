@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Amy Lin">
+    <meta name="description" content="HTML Exercise 12">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <title>HTML Exercise 12</title>
+    <style>
+      body,
+      p {
+        font-family: "Rockwell Extra Bold", "Rockwell Bold", monospace;
+        letter-spacing: 2px;
+      }
+
+      h1 {
+        color: red;
+        text-align: center;
+      }
+
+      h2 {
+        color: blue;
+      }
+
+      /*
+        1. Use inline-block to arrange all cards in one row.
+        2. position: absolute -> division will be removed by process ->
+        3. position: static(default), relative -> division will NOT be removed by process
+      */
+      .card_container {
+        position: static;
+        display: inline-block;
+        height: 120px;
+        width: 80px;
+      }
+
+      /*
+        position: absolute
+          Without setting (top, right, left, bottom), the cards will be arranged from the upper left corner.
+          That is, two cards will be overlapped by each other.
+        position: relative
+          Without setting (top, right, left, bottom), the cards will be arranged from the top to the bottom.
+          That is, two cards will NOT be overlapped by each other.
+      */
+      .card_specific {
+        position: absolute;
+      }
+
+      /* The topper the card, the higher the z-index number. */
+      .card_top {
+        opacity: 1;
+        z-index: 2;
+        height: 120px;
+        width: 80px;
+      }
+
+      .card_bottom {
+        opacity: 0.3;
+        z-index: 1;
+        height: 120px;
+        width: 80px;
+      }
+
+      .red_region {
+        display: inline-block;
+        width: 550px;
+        height: 120px;
+        background-image: url('img/red.png');
+      }
+
+      .black_region {
+        display: inline-block;
+        width: 550px;
+        height: 120px;
+        background-image: url('img/black.png');
+      }
+    </style>
+    <script>
+      function allowDrop(ev) {
+        ev.preventDefault();
+      }
+
+      function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+      }
+
+      function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+      }
+    </script>
+  </head>
+
+  <body>
+    <h1>Exercise 12</h1>
+    <h2>Topic</h2>
+    <div style="font-size: 14pt;">
+      <p>
+        請閱讀 HTML Semantics、 HTML JavaScript、HTML Drag and Drop 單元，如下圖所示<br>
+        上方準備 紅、黑各三張撲克牌，下方為放置紅、黑撲克牌的分類區，使用者可以拖拉上方的撲克牌到下方的分類區放置，被拖拉的撲克牌位置仍須保留。
+      </p>
+      <img src="img/BlackRed.png" alt="example picture" width="50%"><br>
+      <a href="http://10.62.163.224:8088/web/practice/blob/master/docs/html/res/cards-image.zip">圖檔下載</a>
+    </div>
+    <hr>
+
+    <div style="text-align: center;">
+      <p style="font-size: 24pt;">Red or Black?</p>
+      <p style="font-size: 14pt;">Please help classify the cards below.</p>
+    </div>
+
+    <div style="text-align: center;">
+      <div class="card_container">
+        <div class="card_specific">
+          <img class="card_bottom" src="img/card1.png">
+        </div>
+        <div class="card_specific">
+          <img class="card_top" id="drag1" src="img/card1.png" alt="card_black1" draggable="true" ondragstart="drag(event)">
+        </div>
+      </div>
+      <div class="card_container">
+        <div class="card_specific">
+          <img class="card_bottom" src="img/card2.png">
+        </div>
+        <div class="card_specific">
+          <img class="card_top" id="drag2" src="img/card2.png" alt="card_red1" draggable="true" ondragstart="drag(event)">
+        </div>
+      </div>
+      <div class="card_container">
+        <div class="card_specific">
+          <img class="card_bottom" src="img/card3.png">
+        </div>
+        <div class="card_specific">
+          <img class="card_top" id="drag3" src="img/card3.png" alt="card_red2" draggable="true" ondragstart="drag(event)">
+        </div>
+      </div>
+      <div class="card_container">
+        <div class="card_specific">
+          <img class="card_bottom" src="img/card4.png">
+        </div>
+        <div class="card_specific">
+          <img class="card_top" id="drag4" src="img/card4.png" alt="card_black2" draggable="true" ondragstart="drag(event)">
+        </div>
+      </div>
+      <div class="card_container">
+        <div class="card_specific">
+          <img class="card_bottom" src="img/card5.png">
+        </div>
+        <div class="card_specific">
+          <img class="card_top" id="drag5" src="img/card5.png" alt="card_black3" draggable="true" ondragstart="drag(event)">
+        </div>
+      </div>
+      <div class="card_container">
+        <div class="card_specific">
+          <img class="card_bottom" src="img/card6.png">
+        </div>
+        <div class="card_specific">
+          <img class="card_top" id="drag6" src="img/card6.png" alt="card_red3" draggable="true" ondragstart="drag(event)">
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center;">
+      <div class="red_region" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+      <div class="black_region" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    </div>
+
+    <p style="font-size: 14pt;text-align: center;"><a href="ex12.html">Back</a></p>
+
+  </body>
+
+</html>

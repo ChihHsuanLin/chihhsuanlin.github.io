@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Amy Lin">
+    <meta name="description" content="Notes: position">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <title>Notes: position</title>
+    <style>
+      /* text decoration style
+        -webkit-*: work for safari
+        reference: https://stackoverflow.com/questions/51181010/text-decoration-line-through-css-does-not-work-on-safari-with-my-completed-cla
+      */
+      .p1 {
+        text-decoration-line: underline;
+        -webkit-text-decoration-line: underline;
+        text-decoration-color: green;
+        -webkit-text-decoration-color: green;
+        text-decoration-style: wavy;
+        -webkit-text-decoration-style: wavy;
+      }
+
+      /* Hightlight important content */
+      .p2 {
+        color: red;
+        font-weight: bolder;
+      }
+
+      h1 {
+        color: red;
+        text-align: center;
+      }
+
+      h2 {
+        color: blue;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      p,
+      li {
+        font-size: 14pt;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Notes 1: Position 筆記</h1>
+    <p>
+      參考 <a href="http://jendo.org/files/doc/div.html" target="_blank">http://jendo.org/files/doc/div.html</a> 所作之測試筆記，僅包含第一段有關 postion 的內容。
+    </p>
+    <img src="img/position/css_position_summary.jpg" alt="css position summary">
+
+    <h2>Example 1：relative vs absolute</h2>
+    <p>左：box1 = default(static); box2 = default(static)</p>
+    <p><img src="./img/position/example_1_1.png" alt="example_1_1_code"></p>
+
+    <p>
+      中：box1 = relative; box2 = absolute<br>
+      box 2 設定為 absolute，代表其<span class="p2">畫面位置參考的是 box1 的邊界</span>，因此 element 2 的 top: 25px 是指從 <span class="p1">box1 的頂部</span>到 <span class="p1">element 2 的頂部</span>有 25px 的空間，left: 20px 是指從 <span class="p1">box1 的左邊</span>到 <span class="p1">element 2 的左邊</span>有 20px 的空間。<br>
+      也就是 element 2 是從 element 1 的位置再往下移 25px、往右移 20px。
+    </p>
+    <p><img src="./img/position/example_1_2.png" alt="example_1_2_code"></p>
+
+    <p>
+      右：box1 = relative; box2 = relative<br>
+      box 2 設定為 relative，代表其<span class="p2">畫面位置參考的是該物件原本的位置</span>，因此 element 2 的 top: 25px 是指從<span class="p1">原本位置的頂部</span>到<span class="p1">element 2 的頂部</span>有 25px 的空間，left: 20px 是指從<span class="p1">原本位置的左邊</span>到<span class="p1">element 2 的左邊</span>有 20px 的空間。<br>
+      也就是 element 2 是從左邊例子的 element 2 再往下移 25px、往右移 20px。
+    </p>
+    <p><img src="./img/position/example_1_3.png" alt="example_1_3_code"></p>
+
+    <div style="position: relative;width: 600px; height: 120px;">
+      <div style="position: absolute;left: 0px;">
+        <div style="border: 1px solid;width: 200px;height: 120px;">
+          <div style="border: 2px solid blue;width: 80px;height: 20px;top: 5px;">element 1</div>
+          <div style="border: 2px solid purple;width: 80px;height: 20px;top: 25px;">element 2</div>
+        </div>
+      </div>
+      <div style="position: absolute;left: 200px;">
+        <div style="position: relative;border: 1px solid;width: 200px;height: 120px;">
+          <div style="position: absolute;border: 2px solid blue;width: 80px;height: 20px;">element 1</div>
+          <div style="position: absolute;border: 2px solid purple;width: 80px;height: 20px;left: 20px;top: 20px;">element 2</div>
+        </div>
+      </div>
+      <div style="position: absolute; left: 400px;">
+        <div style="position: relative;border: 1px solid;width: 200px;height: 120px;">
+          <div style="position: relative;border: 2px solid blue;width: 80px;height: 20px;">element 1</div>
+          <div style="position: relative;border: 2px solid purple;width: 80px;height: 20px;left: 20px;top: 20px;">element 2</div>
+        </div>
+      </div>
+    </div>
+
+    <h2>Example 2：static 混用 absolute & relative 效果</h2>
+    <p>左：box1 = default(static); box2 = default(static)</p>
+    <p><img src="./img/position/example_2_1.png" alt="example_2_1_code"></p>
+
+    <p>
+      中：box1 = absolute; box2 - element 1 = <span class="p2">absolute</span>; box - element 2 & 3 = static<br>
+      在使用預設=static(如左)之下，box2 的三個 element 是從上至下依序排列，若將 element 1 的 position 改為 absolute，且設定 left: 60px; top: 20px，則剩下的 element 2 & 3 <span class="p2">會自動遞補</span> element 1 騰出的位置。
+    </p>
+    <p><img src="./img/position/example_2_2.png" alt="example_2_2_code"></p>
+
+    <p>
+      右：box1 = absolute; box2 - element 1 = <span class="p2">relatvive</span>; box - element 2 & 3 = static<br>
+      與中間的例子差異在於，box2 的 element 1 設定為 relative，剩下的 element 2 & 3 <span class="p2">不會自動遞補</span> element 1 騰出的位置，而是將其位置保留空出。
+    </p>
+    <p><img src="./img/position/example_2_3.png" alt="example_2_3_code"></p>
+
+    <div style="position: relative;width: 600px; height: 120px;">
+      <div style="position: absolute;left: 0px;">
+        <div style="border: 1px solid;width: 200px;height: 120px;">
+          <div style="border: 2px solid blue;width: 80px;height: 20px;">element 1</div>
+          <div style="border: 2px solid purple;width: 80px;height: 20px;">element 2</div>
+          <div style="border: 2px solid pink;width: 80px;height: 20px;">element 2</div>
+        </div>
+      </div>
+      <div style="position: absolute;left: 200px;">
+        <div style="position: absolute;border: 1px solid;width: 200px;height: 120px;">
+          <div style="position: absolute;border: 2px solid blue;width: 80px;height: 20px;left: 60px;top: 20px;">element 1</div>
+          <div style="position: static;border: 2px solid purple;width: 80px;height: 20px;left: 60px;top: 20px;">element 2</div>
+          <div style="position: static;border: 2px solid pink;width: 80px;height: 20px;left: 60px;top: 20px;">element 3</div>
+        </div>
+      </div>
+      <div style="position: absolute;left: 400px;">
+        <div style="position: absolute;border: 1px solid;width: 200px;height: 120px;">
+          <div style="position: relative;border: 2px solid blue;width: 80px;height: 20px;left: 60px;top: 20px;">element 1</div>
+          <div style="position: static;border: 2px solid purple;width: 80px;height: 20px;left: 60px;top: 20px;">element 2</div>
+          <div style="position: static;border: 2px solid pink;width: 80px;height: 20px;left: 60px;top: 20px;">element 3</div>
+        </div>
+      </div>
+    </div>
+
+    <p>
+      參考上方連結的章節 -- <i>從顯示流程中去除</i> -- 的實作。<br>
+      P.S. 當 element 設定 position: static 時，設定 top, right, bottom, left 皆會被自動忽略。<br>
+      P.S.2 在中間與右邊的例子，element 1 設定 absolute 還是 relative 位置都相同，是因為計算基準點相同。
+    </p>
+
+    <h2>Example 3：fixed (有問題待解)</h2>
+    <p>
+      box1 = relative; box2 = fixed<br>
+      element 2 設定為 fixed 且指定位置(top, left)，代表其<span class="p2">畫面位置參考的是螢幕視窗最大可視範圍邊界</span>，因此 element 2 的位置是從整個頁面的左上角開始算，且不因頁面捲動而跟著移動，會永遠停留在該位置(即為左上方紫框的 element 2)。<br>
+      element 1 設定為 fixed 且不指定位置，通常會<span class="p2">顯示在其原本的位置</span>，在 <a href="https://www.w3schools.com/css/tryit.asp?filename=trycss_position_fixed" target="_blank">w3schools 的例子</a>可以顯示此種結果，但在此範例中測試不出效果，待解。
+    </p>
+    <p><img src="./img/position/example_3.png" alt="example_3_code"></p>
+
+    <div style="position: static;border: 1px solid;width: 200px;height: 120px;">
+      <div style="position: fixed;border: 5px solid yellow;width: 80px;height: 20px;">element 1</div>
+      <div style="position: fixed;border: 2px solid purple;width: 80px;height: 20px;left: 20px;top: 20px;">element 2</div>
+    </div>
+    <p>
+      同樣程式碼於 w3schools 實現之效果如下圖<br>
+      <img style="border: 1px solid;" src="./img/position/example_3_w3chools.png" alt="example_3_code_w3schools">
+    </p>
+
+    <h2>小結論</h2>
+    <ol>
+      <li>在以上幾個例子可發現，要移動/設定 element 1~3，關鍵在於其 div 的 position 設定，與 box1 的設定沒有關係。</li>
+      <li>設定 absolute 會使得後面的其他元素遞補往上移。若是外框設定非 absolute 但內部有 div 設定 absolute，外框又沒有指定大小，後面的元素還是會遞補上移。</li>
+      <li>上層的</li>
+    </ol>
+
+    <h2>Example 4：HTML exercise 05 CSS 拆解</h2>
+    <p>HTML Exercise 05: <a href="../exercise05/ex05.html" target="_blank">Secret Message</a></p>
+    <div>
+      <div style="display: inline-block; vertical-align: top;">
+        <img src="./img/position/example_4_1.png" alt="example_4_html_code">
+      </div>
+      <div style="display: inline-block; vertical-align: top;">
+        <img src="./img/position/example_4_2.png" alt="example_4_css_code">
+      </div>
+    </div>
+    <p>
+      頁面關鍵內容由兩部分組成：1) 上半部固定的訊息，以下簡寫為 top_info，2) 下半部隨著頁面捲動而浮上來的訊息，以下簡寫為 bottom_info。<br>
+      top_info：設定 position: fixed，使得畫面捲動時此訊息始終停留在可視畫面的固定位置。<br>
+      bottom_info：設定 position: absolute 讓該區塊可以自由移動，並設定 top: 2500px 使得整個區塊在頁面較為下方的區域，中間空出的區域觸發頁面捲動。
+    </p>
+
+  </body>
+
+</html>

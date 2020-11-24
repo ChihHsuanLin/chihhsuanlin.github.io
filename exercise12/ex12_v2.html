@@ -1,0 +1,242 @@
+<!doctype html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Amy Lin">
+    <meta name="description" content="HTML Exercise 12">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <title>HTML Exercise 12</title>
+    <style>
+      body,
+      p {
+        font-family: "Rockwell Extra Bold", "Rockwell Bold", monospace;
+        letter-spacing: 2px;
+      }
+
+      h1 {
+        color: red;
+        text-align: center;
+      }
+
+      h2 {
+        color: blue;
+      }
+
+      /*
+        Ref: https://reactgo.com/css-change-background-image-opacity/
+        1. Use ::after pseudo selector to stop affecting opacity to the child image.
+        2. position: absolute -> division will be removed by process
+        3. position: static(default), relative -> division will NOT be removed by process
+      */
+      .card_container1 {
+        width: 80px;
+        height: 120px;
+        position: relative;
+        display: inline-block;
+      }
+
+      .card_container1::before {
+        content: "";
+        background-image: url('img/card1.png');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        opacity: 0.5;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 80px;
+        height: 120px;
+      }
+
+      .card_container2 {
+        width: 80px;
+        height: 120px;
+        position: relative;
+        display: inline-block;
+      }
+
+      .card_container2::before {
+        content: "";
+        background-image: url('img/card2.png');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        opacity: 0.5;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 80px;
+        height: 120px;
+      }
+
+      .card_container3 {
+        width: 80px;
+        height: 120px;
+        position: relative;
+        display: inline-block;
+      }
+
+      .card_container3::before {
+        content: "";
+        background-image: url('img/card3.png');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        opacity: 0.5;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 80px;
+        height: 120px;
+      }
+
+      .card_container4 {
+        width: 80px;
+        height: 120px;
+        position: relative;
+        display: inline-block;
+      }
+
+      .card_container4::before {
+        content: "";
+        background-image: url('img/card4.png');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        opacity: 0.5;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 80px;
+        height: 120px;
+      }
+
+      .card_container5 {
+        width: 80px;
+        height: 120px;
+        position: relative;
+        display: inline-block;
+      }
+
+      .card_container5::before {
+        content: "";
+        background-image: url('img/card5.png');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        opacity: 0.5;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 80px;
+        height: 120px;
+      }
+
+      .card_container6 {
+        width: 80px;
+        height: 120px;
+        position: relative;
+        display: inline-block;
+      }
+
+      .card_container6::before {
+        content: "";
+        background-image: url('img/card6.png');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        opacity: 0.5;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 80px;
+        height: 120px;
+      }
+
+      .card_img {
+        width: 80px;
+        height: 120px;
+        position: relative;
+        top: 0;
+        left: 0;
+      }
+
+      .red_region {
+        display: inline-block;
+        width: 550px;
+        height: 120px;
+        background-image: url('img/red.png');
+      }
+
+      .black_region {
+        display: inline-block;
+        width: 550px;
+        height: 120px;
+        background-image: url('img/black.png');
+      }
+    </style>
+    <script>
+      function allowDrop(ev) {
+        ev.preventDefault();
+      }
+
+      function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+      }
+
+      function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+      }
+    </script>
+  </head>
+
+  <body>
+    <h1>Exercise 12</h1>
+    <h2>Topic</h2>
+    <div style="font-size: 14pt;">
+      <p>
+        請閱讀 HTML Semantics、 HTML JavaScript、HTML Drag and Drop 單元，如下圖所示<br>
+        上方準備 紅、黑各三張撲克牌，下方為放置紅、黑撲克牌的分類區，使用者可以拖拉上方的撲克牌到下方的分類區放置，被拖拉的撲克牌位置仍須保留。
+      </p>
+      <img src="img/BlackRed.png" alt="example picture" width="50%"><br>
+      <a href="http://10.62.163.224:8088/web/practice/blob/master/docs/html/res/cards-image.zip">圖檔下載</a>
+    </div>
+    <hr>
+
+    <div style="text-align: center;">
+      <p style="font-size: 24pt;">Red or Black?</p>
+      <p style="font-size: 14pt;">Please help classify the cards below.</p>
+    </div>
+
+    <div style="text-align: center;">
+      <div class="card_container1" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <img class="card_img" src="img/card1.png" alt="card1" draggable="true" ondragstart="drag(event)" id="drag1">
+      </div>
+      <div class="card_container2" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <img class="card_img" src="img/card2.png" alt="card2" draggable="true" ondragstart="drag(event)" id="drag2">
+      </div>
+      <div class="card_container3" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <img class="card_img" src="img/card3.png" alt="card3" draggable="true" ondragstart="drag(event)" id="drag3">
+      </div>
+      <div class="card_container4" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <img class="card_img" src="img/card4.png" alt="card4" draggable="true" ondragstart="drag(event)" id="drag4">
+      </div>
+      <div class="card_container5" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <img class="card_img" src="img/card5.png" alt="card5" draggable="true" ondragstart="drag(event)" id="drag5">
+      </div>
+      <div class="card_container6" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <img class="card_img" src="img/card6.png" alt="card6" draggable="true" ondragstart="drag(event)" id="drag6">
+      </div>
+    </div>
+    </div>
+
+    <div style="text-align: center;">
+      <div class="red_region" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+      <div class="black_region" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    </div>
+
+    <p style="font-size: 14pt;text-align: center;"><a href="ex12.html">Back</a></p>
+
+  </body>
+
+</html>
